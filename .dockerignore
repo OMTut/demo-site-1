@@ -1,0 +1,8 @@
+.git
+.ddev
+.github
+docs
+README.md
+LICENSE.txt
+web/sites/default/settings.php
+web/sites/default/files
