@@ -1,0 +1,20 @@
+uuid: eb5559ec-c7a1-4f78-bc8b-45fc42670a51
+langcode: en
+status: true
+dependencies:
+  theme:
+    - community_bloom
+_core:
+  default_config_hash: MY-b6RFbUcofefyaeI8uMqaPh2bJOasn2y1bvGVF4dw
+id: community_bloom_primary_admin_actions
+theme: community_bloom
+region: content
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

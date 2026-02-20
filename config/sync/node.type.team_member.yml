@@ -1,0 +1,11 @@
+uuid: d6cba4e7-83f3-4497-81aa-28ba4b42e5cc
+langcode: en
+status: true
+dependencies: {  }
+name: 'Team Member'
+type: team_member
+description: 'A staff or volunteer member of the Community Bloom team.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

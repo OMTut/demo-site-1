@@ -1,0 +1,25 @@
+uuid: 0307b1f8-e89a-4a16-acc7-8b43cee5bc0e
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - community_bloom
+_core:
+  default_config_hash: lE5hyDUbMWVcRxvlVMAwguAJFBiZH2Xf-59wmBIq9co
+id: community_bloom_site_branding
+theme: community_bloom
+region: header
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

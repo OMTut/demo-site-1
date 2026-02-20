@@ -1,0 +1,33 @@
+uuid: 2173a4c8-1bd7-4518-998d-0def6bbbc6fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.newsletter_signup
+  module:
+    - system
+    - webform
+  theme:
+    - community_bloom
+id: community_bloom_newsletter
+theme: community_bloom
+region: featured_bottom_second
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Stay Connected'
+  label_display: visible
+  provider: webform
+  webform_id: newsletter_signup
+  default_data: ''
+  redirect: false
+  lazy: false
+  reset: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

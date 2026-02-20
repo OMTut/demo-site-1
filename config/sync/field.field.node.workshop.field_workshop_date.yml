@@ -1,0 +1,21 @@
+uuid: f9bf360c-0dfb-44d2-af8a-132169b6fe6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_workshop_date
+    - node.type.workshop
+  module:
+    - datetime
+id: node.workshop.field_workshop_date
+field_name: field_workshop_date
+entity_type: node
+bundle: workshop
+label: 'Date & Time'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

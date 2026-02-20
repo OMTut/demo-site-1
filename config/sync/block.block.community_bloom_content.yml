@@ -1,0 +1,22 @@
+uuid: 3ce4c66d-086d-49b9-aa1e-a0cb50e78a66
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - community_bloom
+_core:
+  default_config_hash: GuQlH3j65O5SXgAliLjf1Ben7XBU6qxvW7xXUo6q0rk
+id: community_bloom_content
+theme: community_bloom
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

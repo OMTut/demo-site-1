@@ -1,0 +1,19 @@
+uuid: 1fdf459c-f830-4d59-ae2a-556a909ca7b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_workshop_location
+    - node.type.workshop
+id: node.workshop.field_workshop_location
+field_name: field_workshop_location
+entity_type: node
+bundle: workshop
+label: Location
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

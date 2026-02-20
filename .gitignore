@@ -27,8 +27,6 @@
 # Private files directory (if used)
 /private/
 
-# Drupal's configuration export directory if outside web root
-/config/
 
 # =============================================================================
 # DDEV

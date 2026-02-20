@@ -1,0 +1,22 @@
+uuid: 372445bc-a314-48ea-8726-73739d810795
+langcode: en
+status: false
+dependencies:
+  theme:
+    - community_bloom
+_core:
+  default_config_hash: IsKUlBAi-gl90iZ3w0OI3XZvSYDrtxg4nF1aDhfLWIA
+id: community_bloom_primary_local_tasks
+theme: community_bloom
+region: content
+weight: -5
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

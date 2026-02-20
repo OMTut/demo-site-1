@@ -1,0 +1,23 @@
+uuid: dfb30137-90fa-447b-a20e-4ec67e9bc923
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - community_bloom
+id: community_bloom_branding
+theme: community_bloom
+region: header
+weight: -10
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: ''
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

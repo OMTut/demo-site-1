@@ -1,0 +1,30 @@
+uuid: 03a0fda6-4a3a-40fe-9893-d76a72bf5d4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.workshops
+  module:
+    - system
+    - views
+  theme:
+    - community_bloom
+id: community_bloom_featured_workshops
+theme: community_bloom
+region: featured_bottom_first
+weight: 0
+provider: null
+plugin: 'views_block:workshops-block_1'
+settings:
+  id: 'views_block:workshops-block_1'
+  label: 'Upcoming Workshops'
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

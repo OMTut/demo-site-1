@@ -1,0 +1,30 @@
+uuid: 70fa49aa-ce68-4abb-a1cd-ac52c4181100
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.team_members
+  module:
+    - system
+    - views
+  theme:
+    - community_bloom
+id: community_bloom_team_members
+theme: community_bloom
+region: featured_bottom_first
+weight: 0
+provider: null
+plugin: 'views_block:team_members-block_1'
+settings:
+  id: 'views_block:team_members-block_1'
+  label: 'Meet the Team'
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /about

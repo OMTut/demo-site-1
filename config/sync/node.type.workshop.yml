@@ -1,0 +1,11 @@
+uuid: 3b4095df-9863-421f-86ff-76da107c5993
+langcode: en
+status: true
+dependencies: {  }
+name: Workshop
+type: workshop
+description: 'An educational workshop offered by Community Bloom.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

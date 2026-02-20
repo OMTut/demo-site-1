@@ -1,0 +1,114 @@
+uuid: f652015a-afa3-43ee-b923-4f8a15650220
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 0
+template: false
+archive: false
+id: newsletter_signup
+title: 'Newsletter Signup'
+description: 'Stay connected with Community Bloom news and upcoming workshops.'
+categories: {  }
+elements: |-
+  first_name:
+    '#type': textfield
+    '#title': 'First Name'
+    '#required': true
+    '#placeholder': 'Your first name'
+  email:
+    '#type': email
+    '#title': 'Email Address'
+    '#required': true
+    '#placeholder': 'you@example.com'
+css: ''
+javascript: ''
+settings:
+  page: false
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_reset: false
+  form_access_denied_message: ''
+  submission_log: false
+  submission_access_denied_message: ''
+  autofill: false
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_auto_forward: true
+  preview: 0
+  draft: none
+  confirmation_type: inline
+  confirmation_message: "<p>Thank you for signing up! We'll keep you posted on upcoming workshops and community events.</p>"
+  confirmation_back: false
+  limit_total: null
+  limit_user: null
+  entity_limit_total: null
+  entity_limit_user: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_customize: false
+  token_update: false
+  form_submit_label: Subscribe
+  form_submit_attributes: {  }
+  form_unsaved_drafts: false
+  required_error: ''
+  unique_error: ''
+  admin_title: ''
+  mail_first_name: first_name
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

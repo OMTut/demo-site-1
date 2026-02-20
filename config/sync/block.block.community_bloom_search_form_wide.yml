@@ -1,0 +1,23 @@
+uuid: d89beccb-7b49-48e1-8986-71f5adef9309
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - community_bloom
+_core:
+  default_config_hash: yLgqPzgEDODuqWtULettk0_f5ef8CbiNGY3xcDTEGwk
+id: community_bloom_search_form_wide
+theme: community_bloom
+region: header
+weight: -7
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

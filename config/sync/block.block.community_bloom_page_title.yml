@@ -1,0 +1,24 @@
+uuid: 9c0c775c-5464-48d6-a5b0-4d630489d05c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - community_bloom
+id: community_bloom_page_title
+theme: community_bloom
+region: content
+weight: -10
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

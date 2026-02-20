@@ -1,0 +1,20 @@
+uuid: 74746bcf-6c38-4dab-a61c-10dcd879dc92
+langcode: en
+status: true
+dependencies:
+  theme:
+    - community_bloom
+id: community_bloom_local_tasks
+theme: community_bloom
+region: content
+weight: -9
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: ''
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

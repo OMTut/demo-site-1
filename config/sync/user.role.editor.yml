@@ -1,0 +1,29 @@
+uuid: 01c8f709-1a1c-4c0e-93f8-8f28f92628e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.team_member
+    - node.type.workshop
+  module:
+    - node
+    - system
+    - toolbar
+id: editor
+label: Editor
+weight: 4
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create team_member content'
+  - 'create workshop content'
+  - 'delete own team_member content'
+  - 'delete own workshop content'
+  - 'edit any team_member content'
+  - 'edit any workshop content'
+  - 'edit own team_member content'
+  - 'edit own workshop content'
+  - 'view own unpublished content'

@@ -1,0 +1,22 @@
+uuid: 51a31903-d885-4dcd-a490-7bb2d9fbab5b
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - community_bloom
+_core:
+  default_config_hash: uHGQeXpjudF5HkwGniQ_zzUngqcc3iAzzE7fdjWJiyA
+id: community_bloom_powered
+theme: community_bloom
+region: header
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

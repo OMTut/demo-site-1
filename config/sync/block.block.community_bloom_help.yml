@@ -1,0 +1,22 @@
+uuid: c7b24d54-7085-47ec-b778-122be465f09b
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - community_bloom
+_core:
+  default_config_hash: b6CHwczHyuqKRuf-Oi4zY6q-9HCsLyWRGkk8-reVCfk
+id: community_bloom_help
+theme: community_bloom
+region: highlighted
+weight: -2
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }
