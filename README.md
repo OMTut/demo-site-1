@@ -26,7 +26,7 @@ The site is for a fictional nonprofit — **Community Bloom** — that supports 
 | Metatag | SEO meta tags — description and OG tags per node |
 | Admin Toolbar | Improved admin UX, visible when the Reviewer logs in |
 
-Dependencies are managed entirely by Composer. Drupal core and contrib modules are **not committed to the repository** — this is standard practice in professional Drupal shops. The `composer.json` is the source of truth; running `composer install` after cloning restores all dependencies.
+Dependencies are managed entirely by Composer. Drupal core and contrib modules are **not committed to the repository**. The `composer.json` is the source of truth; running `composer install` after cloning restores all dependencies.
 
 ---
 
@@ -34,7 +34,7 @@ Dependencies are managed entirely by Composer. Drupal core and contrib modules a
 
 ### Why Bootstrap Barrio
 
-Bootstrap Barrio provides a Bootstrap 5 base theme with full Drupal template integration, responsive navigation, and the card component out of the box. It accelerates development without sacrificing customizability — the sub-theme (`community_bloom`) handles all project-specific overrides without touching the base theme, which is the correct professional pattern for Drupal theming.
+Bootstrap Barrio provides a Bootstrap 5 base theme with full Drupal template integration, responsive navigation, and the card component out of the box. The sub-theme (`community_bloom`) handles all project-specific overrides without touching the base theme.
 
 ### Color palette — Greens & Earth Tones
 
@@ -70,11 +70,7 @@ This avoids external requests, eliminates GDPR font-hosting concerns, and keeps 
 
 ## Challenges & How They Were Solved
 
-### 1. Drupal 11 vs. Drupal 10
-
-The plan called for Drupal 10, but `composer create-project drupal/recommended-project` pulled **Drupal 11.3.3** — the current stable release. Rather than pin to 10, I verified that all required contrib modules had Drupal 11-compatible releases and continued on 11. Drupal 11 is fully supported, and deploying the current stable release is the right call for any new project.
-
-### 2. DDEV on Windows — Docker BuildKit path bug
+### 1. DDEV on Windows — Docker BuildKit path bug
 
 Docker Desktop on Windows has a BuildKit path-doubling bug that causes `ddev start` to fail with a build error on Windows drive paths. The fix is to disable BuildKit for DDEV's build step:
 
@@ -84,7 +80,7 @@ DOCKER_BUILDKIT=0 ddev start
 
 Normal `ddev exec`, `drush`, and `composer` commands are unaffected. This is a known Docker Desktop issue on Windows and not specific to DDEV or Drupal.
 
-### 3. AI Claude use
+### 2. AI Claude use
 
 Due to the immediate goal of delivering a Drupal project and my unfamiliarity with Drupal (I've mainly used Wordpress), I leaned heavily on Claude for the development environment and familiarization with Drupal's architecture.
 
