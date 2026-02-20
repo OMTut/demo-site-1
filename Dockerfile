@@ -12,10 +12,11 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libexif-dev \
     libonig-dev \
+    libwebp-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions required by Drupal
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install -j$(nproc) \
         gd \
         pdo_mysql \
