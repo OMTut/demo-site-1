@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libicu-dev \
     libexif-dev \
+    libonig-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions required by Drupal
