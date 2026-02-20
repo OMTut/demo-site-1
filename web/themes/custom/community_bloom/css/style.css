@@ -1,0 +1,968 @@
+/**
+ * style.css — Community Bloom component styles
+ *
+ * Structure:
+ *  1. Accessibility utilities (skip-nav, focus styles)
+ *  2. Base / typography
+ *  3. Navbar
+ *  4. Hero section
+ *  5. Section layout
+ *  6. Cards (shared)
+ *  7. Workshop cards
+ *  8. Team Member cards
+ *  9. Forms / newsletter
+ * 10. Footer
+ * 11. Responsive overrides
+ */
+
+/* ============================================================
+   1. ACCESSIBILITY
+   ============================================================ */
+
+/* Skip navigation — visually hidden until focused.
+   Satisfies WCAG 2.1 SC 2.4.1 (Bypass Blocks). */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--cb-green);
+  color: var(--cb-white);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.15s ease;
+  text-decoration: none;
+}
+.skip-nav:focus {
+  top: 0;
+}
+
+/* Visible focus rings on all interactive elements.
+   Satisfies WCAG 2.1 SC 2.4.7 (Focus Visible). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--cb-green);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Override Bootstrap's subtle focus ring with a high-contrast one */
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.45);
+}
+
+
+/* ============================================================
+   2. BASE / TYPOGRAPHY
+   ============================================================ */
+
+body {
+  background-color: var(--cb-cream);
+  color: var(--cb-text);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.7;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Sticky footer — push footer to bottom of viewport */
+.dialog-off-canvas-main-canvas {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#page-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+#page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Serif headings — editorial feel inspired by botanical garden sites */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  color: var(--cb-brown);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  color: var(--cb-brown);
+  line-height: 1.25;
+}
+h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--cb-text);
+  line-height: 1.3;
+}
+
+a {
+  color: var(--cb-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--cb-green-dark);
+  text-decoration: underline;
+}
+
+p {
+  max-width: 72ch;
+}
+
+
+/* ============================================================
+   3. NAVBAR
+   ============================================================ */
+
+/* Full-width header bar — background spans the viewport */
+#header {
+  background-color: var(--cb-white);
+  border-bottom: 2px solid var(--cb-border);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navbar contents align with the page .container */
+.navbar {
+  background: transparent !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.85rem 0.75rem;
+}
+
+/* Match Bootstrap .container breakpoints exactly */
+@media (min-width: 576px)  { .navbar { max-width: 540px;  } }
+@media (min-width: 768px)  { .navbar { max-width: 720px;  } }
+@media (min-width: 992px)  { .navbar { max-width: 960px;  } }
+@media (min-width: 1200px) { .navbar { max-width: 1140px; } }
+@media (min-width: 1400px) { .navbar { max-width: 1320px; } }
+
+.navbar-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--cb-green) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar-nav .nav-link {
+  color: var(--cb-text) !important;
+  font-weight: 500;
+  font-size: 0.92rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link[aria-current="page"] {
+  color: var(--cb-green) !important;
+  background-color: var(--cb-green-light);
+}
+
+/* Green hamburger icon */
+.navbar-toggler {
+  border-color: var(--cb-green);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%233d6b4f' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* ============================================================
+   4. HERO SECTION
+   ============================================================ */
+
+.cb-hero {
+  background: linear-gradient(160deg, var(--cb-green) 0%, var(--cb-green-dark) 60%, #1e3a2a 100%);
+  color: var(--cb-white);
+  padding: 6.5rem 0 6rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle botanical texture overlay */
+.cb-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.04) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cb-hero h1 {
+  color: var(--cb-white);
+  font-size: clamp(2.2rem, 5.5vw, 3.75rem);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.15);
+}
+
+.cb-hero .lead {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.cb-hero .btn-hero {
+  background-color: var(--cb-gold);
+  color: var(--cb-white);
+  border: none;
+  padding: 0.85rem 2.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+  display: inline-block;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+}
+.cb-hero .btn-hero:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background-color: #b8943e;
+  color: var(--cb-white);
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   5. SECTION LAYOUT
+   ============================================================ */
+
+.cb-section {
+  padding: 5rem 0;
+}
+
+.cb-section-title {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--cb-brown);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.85rem;
+  position: relative;
+}
+/* Gold underline accent on section titles */
+.cb-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 56px;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--cb-gold), var(--cb-green));
+  border-radius: 2px;
+}
+
+.cb-section-subtitle {
+  color: var(--cb-text-muted);
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+}
+
+/* Alternate section background */
+.cb-section--tinted {
+  background-color: var(--cb-green-light);
+  border-top: 1px solid var(--cb-green-mist);
+  border-bottom: 1px solid var(--cb-green-mist);
+}
+
+
+/* ============================================================
+   6. CARDS (SHARED)
+   ============================================================ */
+
+.card {
+  border: 1px solid var(--cb-border);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  background-color: var(--cb-white);
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+  position: relative;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cb-green), var(--cb-gold));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+.card:hover::after {
+  opacity: 1;
+}
+
+.card-img-top {
+  height: 210px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+.card-title a {
+  color: var(--cb-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.card-title a:hover {
+  color: var(--cb-green);
+}
+
+.card-text {
+  color: var(--cb-text-muted);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  font-family: 'DM Sans', sans-serif;
+}
+
+
+/* ============================================================
+   7. WORKSHOP CARDS
+   ============================================================ */
+
+/* Date badge displayed above the card title */
+.workshop-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cb-green-dark);
+  background-color: var(--cb-green-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.workshop-location {
+  font-size: 0.85rem;
+  color: var(--cb-text-muted);
+  margin-top: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.workshop-location::before {
+  content: '📍 ';
+}
+
+.workshop-register-link {
+  display: inline-block;
+  margin-top: 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cb-green);
+  border: 1.5px solid var(--cb-green);
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-family: 'DM Sans', sans-serif;
+}
+.workshop-register-link:hover {
+  background-color: var(--cb-green);
+  color: var(--cb-white);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   8. TEAM MEMBER CARDS
+   ============================================================ */
+
+.team-member-card .card-img-top {
+  height: 260px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.team-member-card .card-body {
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+}
+
+.team-member-card .card-title {
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.team-member-role {
+  color: var(--cb-gold);
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.team-member-bio {
+  font-size: 0.875rem;
+  color: var(--cb-text-muted);
+  line-height: 1.6;
+  font-family: 'DM Sans', sans-serif;
+}
+
+
+/* ============================================================
+   9. FORMS / NEWSLETTER (Stay Connected)
+   ============================================================ */
+
+/* Region wrapper — constrain and center */
+.region-featured-bottom-second {
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* The newsletter block as a styled card */
+#block-community-bloom-newsletter {
+  background: linear-gradient(160deg, var(--cb-green-dark) 0%, var(--cb-green) 50%, #2a5e40 100%);
+  color: var(--cb-white);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+#block-community-bloom-newsletter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 100%, rgba(255,255,255,0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 0%, rgba(255,255,255,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+#block-community-bloom-newsletter h2 {
+  color: var(--cb-white);
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Form field styling */
+#block-community-bloom-newsletter label {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+#block-community-bloom-newsletter .form-control {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--cb-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+#block-community-bloom-newsletter .form-control:focus {
+  border-color: var(--cb-gold);
+  box-shadow: 0 0 0 3px rgba(200, 164, 94, 0.3);
+  background: var(--cb-white);
+}
+
+/* Submit button — override Bootstrap's --bs-primary within the block */
+#block-community-bloom-newsletter {
+  --bs-primary: var(--cb-gold);
+  --bs-primary-rgb: 200, 164, 94;
+}
+
+#block-community-bloom-newsletter .webform-button--submit.btn.btn-primary.form-submit {
+  --bs-btn-bg: var(--cb-gold);
+  --bs-btn-border-color: var(--cb-gold);
+  --bs-btn-hover-bg: var(--cb-cream);
+  --bs-btn-hover-border-color: var(--cb-cream);
+  --bs-btn-hover-color: var(--cb-text);
+  --bs-btn-active-bg: var(--cb-cream);
+  --bs-btn-active-border-color: var(--cb-cream);
+  --bs-btn-active-color: var(--cb-text);
+  background-color: var(--cb-gold) !important;
+  color: var(--cb-white) !important;
+  border: none !important;
+  padding: 0.75rem 2.5rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+#block-community-bloom-newsletter .webform-button--submit.btn.btn-primary.form-submit:hover {
+  background-color: var(--cb-cream) !important;
+  color: var(--cb-text) !important;
+  transform: translateY(-1px);
+}
+
+/* Legacy .cb-newsletter class (keep for backwards compat) */
+.cb-newsletter {
+  background-color: var(--cb-brown);
+  color: var(--cb-white);
+  padding: 4.5rem 0;
+  text-align: center;
+}
+
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+
+.site-footer {
+  background-color: #1a2620;   /* Deep forest — distinct from body */
+  color: #b0bfb3;
+  padding: 4rem 0 2rem;
+  margin-top: auto;
+  border-top: 3px solid var(--cb-gold);
+}
+
+.site-footer a {
+  color: #8fb593;
+  transition: color 0.2s ease;
+}
+.site-footer a:hover {
+  color: var(--cb-white);
+  text-decoration: none;
+}
+
+.site-footer .footer-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--cb-white);
+  margin-bottom: 0.5rem;
+}
+
+.site-footer .footer-tagline {
+  font-size: 0.875rem;
+  color: #6d9172;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.site-footer h5 {
+  color: var(--cb-gold);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.1rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-footer ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.site-footer hr {
+  border-color: #2a3d2e;
+  margin: 2.5rem 0 1.25rem;
+}
+
+.site-footer .footer-legal {
+  font-size: 0.8rem;
+  color: #4d6854;
+}
+
+
+/* ============================================================
+   11. WORKSHOPS VIEW GRID
+   ============================================================ */
+
+/* 2-column card grid for the workshops view block */
+.view-workshops .view-content.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Each workshop item as a card */
+.view-workshops .views-row {
+  background: var(--cb-white);
+  border: 1px solid var(--cb-border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.view-workshops .views-row:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Stack content vertically: image → title → body → meta */
+.view-workshops .node--type-workshop {
+  display: flex;
+  flex-direction: column;
+}
+.view-workshops .node--type-workshop > header {
+  order: 2;
+  padding: 1.25rem 1.5rem 0;
+}
+.view-workshops .node--type-workshop > header .node__title {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+.view-workshops .node--type-workshop > header .node__title a {
+  color: var(--cb-text);
+  text-decoration: none;
+}
+.view-workshops .node--type-workshop > header .node__title a:hover {
+  color: var(--cb-green);
+}
+.view-workshops .node--type-workshop .node__content {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1.5rem 1.5rem;
+}
+
+/* Full-width image at top of card */
+.view-workshops .field--name-field-workshop-image {
+  order: 1;
+  margin: 0;
+}
+.view-workshops .field--name-field-workshop-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Date, body, location ordering */
+.view-workshops .field--name-field-workshop-date {
+  order: 1;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--cb-green-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.view-workshops .field--name-body {
+  order: 2;
+  font-size: 0.93rem;
+  color: var(--cb-text-muted);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+.view-workshops .field--name-field-workshop-location {
+  order: 3;
+  font-size: 0.85rem;
+  color: var(--cb-text-muted);
+}
+.view-workshops .field--name-field-workshop-location .field__label {
+  display: none;
+}
+.view-workshops .field--name-field-workshop-location .field__item::before {
+  content: '\1F4CD  ';
+}
+
+/* Hide "Read more" link in the card view */
+.view-workshops .inline__links {
+  order: 4;
+  padding-top: 0.5rem;
+}
+.view-workshops .inline__links .node-readmore a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cb-green);
+}
+
+/* ============================================================
+   11b. TEAM MEMBERS VIEW GRID
+   ============================================================ */
+
+/* 3-column card grid for team members */
+.view-team-members .view-content.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Each team member as a card */
+.view-team-members .views-row {
+  background: var(--cb-white);
+  border: 1px solid var(--cb-border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.view-team-members .views-row:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Stack: photo → name → role → bio */
+.view-team-members .node--type-team-member {
+  display: flex;
+  flex-direction: column;
+}
+.view-team-members .node--type-team-member > header {
+  order: 2;
+  padding: 1.25rem 1.5rem 0;
+  text-align: center;
+}
+.view-team-members .node--type-team-member > header .node__title {
+  font-size: 1.15rem;
+  margin-bottom: 0.15rem;
+}
+.view-team-members .node--type-team-member > header .node__title a {
+  color: var(--cb-text);
+  text-decoration: none;
+}
+.view-team-members .node--type-team-member > header .node__title a:hover {
+  color: var(--cb-green);
+}
+.view-team-members .node--type-team-member .node__content {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+/* Full-width photo at top of card */
+.view-team-members .field--name-field-team-photo {
+  order: 1;
+  margin: 0;
+}
+.view-team-members .field--name-field-team-photo img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Role styled as accent label */
+.view-team-members .field--name-field-team-role {
+  order: 1;
+  color: var(--cb-gold);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Bio text */
+.view-team-members .field--name-field-team-bio {
+  order: 2;
+  font-size: 0.875rem;
+  color: var(--cb-text-muted);
+  line-height: 1.6;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Hide read more links */
+.view-team-members .inline__links {
+  display: none;
+}
+
+/* Responsive: tablet → 2 cols, mobile → 1 col */
+@media (max-width: 640px) {
+  .view-workshops .view-content.row,
+  .view-team-members .view-content.row {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .view-workshops .view-content.row,
+  .view-team-members .view-content.row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ============================================================
+   12. WORKSHOP FULL PAGE
+   ============================================================ */
+
+/* Stack workshop fields vertically on the full page view */
+.node--type-workshop.node--view-mode-full .node__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.node--type-workshop.node--view-mode-full .field--name-field-workshop-image {
+  order: 1;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.node--type-workshop.node--view-mode-full .field--name-field-workshop-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 480px;
+}
+
+.node--type-workshop.node--view-mode-full .field--name-field-workshop-date {
+  order: 2;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cb-green-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.node--type-workshop.node--view-mode-full .field--name-field-workshop-location {
+  order: 3;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--cb-text-muted);
+}
+
+.node--type-workshop.node--view-mode-full .field--name-body {
+  order: 4;
+  width: 100%;
+}
+.node--type-workshop.node--view-mode-full .field--name-body p {
+  max-width: none;
+}
+
+.node--type-workshop.node--view-mode-full .inline__links {
+  order: 5;
+}
+
+
+/* ============================================================
+   13. PAGE NODE IMAGE
+   ============================================================ */
+
+/* Force stacked layout for page nodes — image above text at all sizes */
+.node--type-page .node__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.node--type-page .field--name-field-image {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.node--type-page .field--name-field-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 480px;
+}
+
+.node--type-page .field--name-body {
+  width: 100%;
+}
+
+.node--type-page .field--name-body p {
+  max-width: none;
+}
+
+
+/* ============================================================
+   12. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .cb-hero {
+    padding: 4rem 0 3.5rem;
+  }
+  .cb-section {
+    padding: 3rem 0;
+  }
+  .card-img-top {
+    height: 180px;
+  }
+  .team-member-card .card-img-top {
+    height: 210px;
+  }
+  .cb-newsletter {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.15rem;
+  }
+  .cb-hero h1 {
+    font-size: 1.85rem;
+  }
+  .cb-hero .btn-hero {
+    padding: 0.75rem 2rem;
+    font-size: 0.88rem;
+  }
+  .card {
+    border-radius: 10px;
+  }
+}

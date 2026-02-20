@@ -1,0 +1,70 @@
+# =============================================================================
+# Drupal / Composer
+# =============================================================================
+
+# Composer dependencies — regenerate with `composer install`
+/vendor/
+
+# Drupal core and all contrib code (Composer-managed)
+/web/core
+/web/modules/contrib
+/web/themes/contrib
+/web/profiles/contrib
+/web/libraries
+
+# =============================================================================
+# Drupal runtime / environment-specific files
+# =============================================================================
+
+# User uploads, generated CSS/JS, cache, sync config
+/web/sites/default/files/
+
+# Local settings overrides (DB creds, hash salt, etc.)
+# NOTE: settings.ddev.php is excluded via web/sites/default/.gitignore
+/web/sites/default/settings.local.php
+/web/sites/*/settings.local.php
+
+# Private files directory (if used)
+/private/
+
+# Drupal's configuration export directory if outside web root
+/config/
+
+# =============================================================================
+# DDEV
+# =============================================================================
+# Auto-generated DDEV internals are handled by .ddev/.gitignore.
+# .ddev/config.yaml and custom commands ARE intentionally tracked.
+
+# =============================================================================
+# Environment & secrets
+# =============================================================================
+.env
+.env.local
+.env.*.local
+*.local.php
+
+# =============================================================================
+# Claude Code (local AI tool settings)
+# =============================================================================
+/.claude/
+
+# =============================================================================
+# OS / Editor artifacts
+# =============================================================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# =============================================================================
+# Logs & temp
+# =============================================================================
+*.log
+/tmp/

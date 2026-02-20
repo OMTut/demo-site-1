@@ -1,0 +1,37 @@
+/**
+ * colors.css — Community Bloom color palette
+ *
+ * All brand colors are defined here as CSS custom properties.
+ * Overrides Bootstrap 5 CSS variables to keep the palette consistent
+ * without duplicating values.
+ */
+
+:root {
+  /* Brand palette */
+  --cb-green:        #3d6b4f;   /* Deep sage   — primary accent  */
+  --cb-green-dark:   #2a4e38;   /* Forest      — hover states    */
+  --cb-green-light:  #e9f0eb;   /* Pale sage   — backgrounds     */
+  --cb-green-mist:   #d4e4d8;   /* Soft sage   — subtle accents  */
+  --cb-brown:        #5c4033;   /* Rich earth  — headings        */
+  --cb-brown-light:  #f2ebe0;   /* Warm linen  — subtle bg       */
+  --cb-cream:        #faf7f2;   /* Warm cream  — page background */
+  --cb-gold:         #c8a45e;   /* Warm gold   — CTA accent      */
+  --cb-gold-light:   #f5edda;   /* Pale gold   — highlight bg    */
+  --cb-white:        #ffffff;
+  --cb-text:         #2b2926;   /* Rich black  — body copy       */
+  --cb-text-muted:   #726b63;   /* Warm gray   — meta info       */
+  --cb-border:       #e2dcd2;   /* Sand        — card borders    */
+
+  /* Bootstrap 5 variable overrides */
+  --bs-primary:          #3d6b4f;
+  --bs-primary-rgb:      61, 107, 79;
+  --bs-secondary:        #5c4033;
+  --bs-secondary-rgb:    92, 64, 51;
+  --bs-body-bg:          #faf7f2;
+  --bs-body-color:       #2b2926;
+  --bs-link-color:       #3d6b4f;
+  --bs-link-color-rgb:   61, 107, 79;
+  --bs-link-hover-color: #2a4e38;
+  --bs-border-color:     #e2dcd2;
+  --bs-card-bg:          #ffffff;
+}
