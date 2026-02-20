@@ -25,7 +25,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         intl \
         exif
 
-# Enable Apache mod_rewrite (required for Drupal clean URLs)
+# Enable Apache mod_rewrite (required for Drupal clean URL)
 RUN a2enmod rewrite
 
 # Set Apache to serve from the Drupal docroot (web/)
