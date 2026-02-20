@@ -2,12 +2,7 @@
 
 ## Purpose
 
-A portfolio demo site built on Drupal 10, created as part of a Web Designer job application to the Bureau of Economic Geology at UT Austin. The site is a fictional nonprofit called **Community Bloom** that supports local gardening initiatives and educational workshops. The concept is small, relatable, and provides enough content variety to demonstrate core Drupal and frontend skills without requiring the hiring manager to dig deep.
-
-**Hiring manager will receive:**
-- A link to the live demo (Cloudflare tunnel → k3s cluster)
-- A link to the GitHub repo
-- A short intro message
+A portfolio demo site built on Drupal 10. The site is a fictional nonprofit called **Community Bloom** that supports local gardening initiatives and educational workshops. The concept is small, relatable, and provides enough content variety to demonstrate core Drupal and frontend skills.
 
 ---
 
@@ -63,9 +58,7 @@ A portfolio demo site built on Drupal 10, created as part of a Web Designer job 
 |---------------|-----------------------------------------------------------------|
 | Administrator | Full site access                                                |
 | Editor        | Create, edit, delete Workshop and Team Member nodes; no admin config access |
-| Reviewer      | View-only admin access (for the hiring manager's demo login); can browse admin UI but cannot create or edit anything |
-
-The hiring manager will receive **Reviewer** credentials with the intro message.
+| Reviewer      | View-only admin access; can browse admin UI but cannot create or edit anything |
 
 ---
 
@@ -178,7 +171,6 @@ community-bloom/
 3. **Design Decisions** — color palette rationale, Bootstrap Barrio selection, sub-theme scope
 4. **Challenges & How They Were Solved** — document 1–2 real issues encountered during the build
 5. **Local Development Setup** — DDEV setup steps so anyone can clone and run it
-6. **Demo Credentials** — Reviewer login for the hiring manager
 
 ---
 

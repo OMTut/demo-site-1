@@ -1,6 +1,6 @@
 # Community Bloom
 
-A portfolio demo site built with Drupal 11, created as part of a Web Designer job application to the Bureau of Economic Geology at UT Austin.
+A portfolio demo site built with Drupal 11.
 
 The site is for a fictional nonprofit — **Community Bloom** — that supports local gardening initiatives and educational workshops. The concept is small and relatable, but provides enough content variety to demonstrate core Drupal and frontend skills across content types, views, theming, permissions, forms, and SEO.
 
@@ -118,17 +118,6 @@ ddev drush cache:rebuild
 The site will be available at **http://community-bloom.ddev.site**.
 
 > **Windows note:** If `ddev start` fails during the build step, prefix it with `DOCKER_BUILDKIT=0` — see challenge #2 above.
-
----
-
-## Demo Credentials
-
-| Role | Username | Password | Access |
-|---|---|---|---|
-| Reviewer | `reviewer` | `reviewer` | Browse admin UI; cannot create or edit content |
-| Admin | `admin` | `admin` | Full site access |
-
-The **Reviewer** role is intended for the hiring manager — it surfaces the Drupal admin interface (with Admin Toolbar) so the content type structure, Views configuration, Webform setup, and permissions are all visible without the risk of accidental changes.
 
 ---
 
